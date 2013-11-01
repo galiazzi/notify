@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-Type"  content="text/html;charset=UTF-8"/>
+        <link href="../../src/notify.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <textarea id="msg"></textarea>
+        <button data-mtype="warning">Warning</button>
+        <button data-mtype="error">Error</button>
+        <button data-mtype="info">Info</button>
+        <script type="text/javascript" src="../../src/notify.js"></script>
+        <script>
+            document.body.onload = function () {
+                Notify.config({urlImages: "../../src/img", maxBoxMessage: 4});
+            };
+            Array.prototype.slice.call(document.querySelectorAll("button")).forEach(function (b) {
+                b.onclick = function () {
+                    Notify[this.dataset.mtype](document.getElementById("msg").value);
+                };
+            });
+        </script>
+    </body>
+</html>
