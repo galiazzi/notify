@@ -1,0 +1,15 @@
+{
+    "name": "notify",
+    "version": "1.0.0",
+    "private": true,
+    "main": "dist/notify.js",
+    "ignore": [
+        "nbproject",
+        "node_modules",
+        "src",
+        "test",
+        ".gitignore",
+        "Gruntfile.js",
+        "package.json"
+    ]
+}

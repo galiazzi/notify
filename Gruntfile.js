@@ -42,14 +42,29 @@ module.exports = function (grunt) {
                 dest: 'dist/',
                 ext: '.min.css'
             }
+        },
+
+        copy: {
+            img: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src/',
+                        src: ["img/*"],
+                        dest: 'dist/'
+                    }
+                ]
+            }
         }
     });
 
-    grunt.registerTask("dist", ["clean", "concat", "uglify", "cssmin"]);
-    grunt.registerTask("default", ["dist"]);
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-mocha");
+    grunt.loadNpmTasks("grunt-contrib-copy");
+
+    grunt.registerTask("dist", ["clean", "concat", "uglify", "cssmin", "copy"]);
+    grunt.registerTask("default", ["dist"]);
 };
