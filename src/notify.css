@@ -6,7 +6,7 @@
     /* O Firefox não entendeu o min-height quando o display for table */
     height:  60px;
 
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 5px;
     z-index: 999999;
