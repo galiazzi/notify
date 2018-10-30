@@ -2,7 +2,8 @@ var Notify = (function () {
 
     var boxMessages = [],
         config = {
-            maxBoxMessage: 4, urlImages: "."
+            maxBoxMessage: 4,
+            urlImages: '.'
         }, bottom;
 
     function getPosButton() {
@@ -123,7 +124,7 @@ var Notify = (function () {
 
     function PMessage() {
 
-        var self = this;
+        const self = this;
 
         function getBox () {
             var i = boxMessages.length;
@@ -176,30 +177,29 @@ var Notify = (function () {
     }
 
     return {
-        error: function (m) {
-            var time = arguments[1] ? arguments[1] : 7000;
-            setMessage("error", m, time);
+        error(m, time = 7000) {
+            setMessage('error', m, time);
         },
 
-        info: function (m) {
-            setMessage("info", m, 3000);
+        info(m, time = 3000) {
+            setMessage('info', m, time);
         },
 
-        warning: function (m) {
-            setMessage("warning", m, 5000);
+        warning(m, time = 5000) {
+            setMessage('warning', m, time);
         },
 
-        success: function (m) {
-            setMessage("success", m, 3000);
+        success(m, time = 3000) {
+            setMessage('success', m, time);
         },
 
-        config: function (obj) {
-            Object.keys(obj).forEach(function (propertie) {
+        config(obj) {
+            Object.keys(obj).forEach(propertie => {
                 config[propertie] = obj[propertie];
             });
         },
 
-        createPMessage: function() {
+        createPMessage() {
             return new PMessage();
         }
     };
